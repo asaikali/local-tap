@@ -1,0 +1,53 @@
+#@ load("@ytt:data", "data")
+profile: full
+
+package_overlays:
+  - name: contour
+    secrets:
+      - name: tailscale-overlay
+      - name: envoy-overlay
+
+shared:
+  ingress_domain: #@ data.values.INGRESS_DOMAIN
+ #! ingress_issuer: letsencrypt-production
+  image_registry:
+    #!  To be used by Build Service by appending "/buildservice" and used by Supply chain by appending "/workloads".
+    project_path: #@ data.values.REGISTRY_REPOSITORY 
+    username: #@ data.values.REGISTRY_USERNAME
+    password: #@ data.values.REGISTRY_PASSWORD
+    
+#! Installation fails if this is not set to true. Not a string.
+ceip_policy_disclosed: true
+
+contour:
+  envoy:
+    service:
+      type: LoadBalancer
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: #@ "*." + data.values.INGRESS_DOMAIN
+        external-dns.alpha.kubernetes.io/ttl: "10s"
+
+supply_chain: basic
+
+#@ baseUrl = "https://tap-gui." + data.values.INGRESS_DOMAIN
+tap_gui:
+  service_type: ClusterIP
+  app_config:
+    app:
+      baseUrl: #@ baseUrl
+    catalog:
+      locations:
+        - type: url
+          target: #@ data.values.CATALOG_INFO
+    backend:
+      baseUrl: #@ baseUrl
+      cors:
+        origin: #@ baseUrl
+    auth:
+      environment: development
+      providers:
+        github:
+          development:
+            clientId: #@ data.values.GITHUB_CLIENT_ID
+            clientSecret: #@ data.values.GITHUB_CLIENT_SECRET
+   

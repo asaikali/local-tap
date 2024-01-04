@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    email: "asaikali@gmail.com"
+    privateKeySecretRef:
+      name: tap-cluster-issuer    
+    server: "https://acme-v02.api.letsencrypt.org/directory"
+    solvers:
+      - dns01:
+          cloudDNS:
+            project: "fe-asaikali"
+            # This is the secret used to access the service account
+            serviceAccountSecretRef:
+              name: gcp-cloud-dns
+              key: credentials.json
+            
