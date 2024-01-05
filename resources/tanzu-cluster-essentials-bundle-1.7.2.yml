@@ -1,0 +1,6 @@
+---
+apiVersion: imgpkg.carvel.dev/v1alpha1
+bundle:
+  image: registry.tanzu.vmware.com/tanzu-cluster-essentials/cluster-essentials-bundle@sha256:c75374a9162b379a05d7852f8d98b6dcb5fe17e706b27bf736cdcdebf25f0804
+  tag: 1.7.2
+kind: BundleLock
