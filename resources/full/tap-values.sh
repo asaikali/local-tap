@@ -6,7 +6,6 @@ set -eio pipefail
 readonly SCRIPT_DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 source ${SCRIPT_DIR}/../../workspace/settings.sh
 
-readonly GCP_ARTIFACT_REGISTRY_HOST=${GCP_REGION}-docker.pkg.dev
 readonly TAP_REGISTRY_REPO=${GCP_ARTIFACT_REGISTRY_HOST}/${GCP_PROJECT_ID}/${CODE_NAME}
 
 export TAP_BASE_DOMAIN=${BASE_DOMAIN}

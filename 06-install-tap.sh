@@ -13,7 +13,7 @@ source ${SETTING_SH}
 TAP_VALUES_FILE=${WORKSPACE_DIR}/state/full-tap-values-01.yaml
 ${GIT_REPO_ROOT}/resources/full/tap-values.sh > ${TAP_VALUES_FILE}
 
-kubectl apply -f ${GIT_REPO_ROOT}/resources/lb-overlay.yaml
+#kubectl apply -f ${GIT_REPO_ROOT}/resources/lb-overlay.yaml
 kubectl apply -f ${GIT_REPO_ROOT}/resources/envoy-overlay.yaml
 
 tanzu package install tap \

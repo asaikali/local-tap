@@ -4,9 +4,9 @@ profile: full
 package_overlays:
   - name: contour
     secrets:
-      - name: tailscale-overlay
+#!      - name: tailscale-overlay
       - name: envoy-overlay
-
+  
 shared:
   ingress_domain: #@ data.values.INGRESS_DOMAIN
  #! ingress_issuer: letsencrypt-production
@@ -22,10 +22,7 @@ ceip_policy_disclosed: true
 contour:
   envoy:
     service:
-      type: LoadBalancer
-      annotations:
-        external-dns.alpha.kubernetes.io/hostname: #@ "*." + data.values.INGRESS_DOMAIN
-        external-dns.alpha.kubernetes.io/ttl: "10s"
+      type: NodePort
 
 supply_chain: basic
 
