@@ -1,0 +1,19 @@
+#@ load("@ytt:overlay", "overlay")
+
+#@overlay/match by=overlay.subset({"kind": "Deployment", "metadata": {"name": "application-configuration-service"}})
+---
+spec:
+  template:
+    spec:
+      containers:
+        #@overlay/match by="name"
+        - name: application-configuration-service
+          resources:
+            limits:
+              #@overlay/remove
+              cpu: null
+              #@overlay/replace
+              memory: 512Mi
+            requests:
+              #@overlay/replace
+              memory: 512Mi
