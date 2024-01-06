@@ -1,23 +1,24 @@
 #@ load("@ytt:data", "data")
+
 profile: full
+
+#! Installation fails if this is not set to true. Not a string.
+ceip_policy_disclosed: true
 
 package_overlays:
   - name: contour
     secrets:
-#!      - name: tailscale-overlay
       - name: envoy-overlay
+      #! - name: contour-overlay
   
 shared:
   ingress_domain: #@ data.values.INGRESS_DOMAIN
- #! ingress_issuer: letsencrypt-production
   image_registry:
     #!  To be used by Build Service by appending "/buildservice" and used by Supply chain by appending "/workloads".
-    project_path: #@ data.values.REGISTRY_REPOSITORY 
-    username: #@ data.values.REGISTRY_USERNAME
-    password: #@ data.values.REGISTRY_PASSWORD
-    
-#! Installation fails if this is not set to true. Not a string.
-ceip_policy_disclosed: true
+    project_path: #@ data.values.WORKLOAD_REPO
+    secret:
+      name: "workload-registry"
+      namespace: "tap-install"
 
 contour:
   envoy:

@@ -1,0 +1,1 @@
+this folder is a temporary working folder used by the install scripts
