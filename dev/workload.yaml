@@ -9,7 +9,7 @@ spec:
   params:
   - name: annotations
     value:
-      autoscaling.knative.dev/minScale: "0"
+      autoscaling.knative.dev/minScale: "1"
   source:
     git:
       url: https://github.com/asaikali/tanzu-java-web-app.git
@@ -19,7 +19,7 @@ spec:
 
         
 # tanzu apps workload list -n dev
-# tanzu apps workload create -f workload.yaml -n dev
+# tanzu apps workload apply -f workload.yaml -n dev
 # tanzu apps workload update -f workload.yaml -n dev
 # tanzu apps workload get tanzu-java-web-app -n dev
 # tanzu apps workload tail tanzu-java-web-app -n dev --since 1h
