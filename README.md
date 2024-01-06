@@ -42,10 +42,3 @@ use the fully qualifed domain name during the install.
 
 3. run the scripts in this folder in sequence based on the script number and 
  you will end up with a working TAP. 
-
- 
-
-# Deploy Tailscale Kuberentes Operator
-
-https://network.pivotal.io/products/tanzu-cluster-essentials/
-https://network.pivotal.io/products/tanzu-application-platform
