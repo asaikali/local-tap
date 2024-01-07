@@ -17,3 +17,15 @@ spec:
             requests:
               #@overlay/replace
               memory: 768Mi
+          #@overlay/match missing_ok=True
+          livenessProbe:
+            #@overlay/match missing_ok=True
+            initialDelaySeconds: 30
+          #@overlay/match missing_ok=True
+          readinessProbe:
+            #@overlay/match missing_ok=True
+            initialDelaySeconds: 30
+          #@overlay/match missing_ok=True
+          startupProbe:
+            #@overlay/match missing_ok=True
+            initialDelaySeconds: 30

@@ -12,11 +12,9 @@ readonly ACS_VERSION=$(tanzu package available list application-configuration-se
 # Install Application Configuration Service
 #
 
-set -x
-
 tanzu package install application-configuration-service \
   --package application-configuration-service.tanzu.vmware.com \
   --version ${ACS_VERSION} \
-  --namespace tap-install 
-  # --ytt-overlay-file ${GIT_REPO_ROOT}/config/acs-overlay.yaml
+  --namespace tap-install \
+  --ytt-overlay-file ${GIT_REPO_ROOT}/config/acs-overlay.yaml
   
