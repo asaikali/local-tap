@@ -43,4 +43,4 @@ use the fully qualifed domain name during the install.
    comments in the `setting.sh` to guide along.
 
 3. Run the scripts in this folder in sequence based on the script number and 
-   you will end up with a working TAP. 
+   you will end up with a working TAP. Scripts after 04 are optional.

@@ -12,7 +12,7 @@ readonly ACS_VERSION=$(tanzu package available list application-configuration-se
 # Install Application Configuration Service
 #
 
-se
+set -x
 
 tanzu package install application-configuration-service \
   --package application-configuration-service.tanzu.vmware.com \

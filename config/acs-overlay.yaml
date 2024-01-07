@@ -13,7 +13,7 @@ spec:
               #@overlay/remove
               cpu: null
               #@overlay/replace
-              memory: 512Mi
+              memory: 768Mi
             requests:
               #@overlay/replace
-              memory: 512Mi
+              memory: 768Mi
