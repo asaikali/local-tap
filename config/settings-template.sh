@@ -36,7 +36,8 @@ readonly WORKLOAD_REGISTRY_REPO=${WORKLOAD_REGISTRY_HOST}/tap
 # IDs you will need to provision a GitHub App in your developer settings
 # on the https://github.com/settings/developers page. On the App setting 
 # page set the app home page and callback urls to point the URL of where
-# TAP GUI is running for example http://tap-gui.tap.gcp.tanzu.ca. You will
+# TAP GUI is running for example "https://tap-guit.tap.local.tanzu.ca" works
+# if you are using the localhost based domain name from above. You will
 # need to copy and paste the client id and secret from the Github settings
 # page into these env vars so that TAP GUI can be configured correctly. 
 # 
