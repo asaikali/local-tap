@@ -8,9 +8,9 @@ ceip_policy_disclosed: true
 package_overlays:
   - name: contour
     secrets:
+      - name: contour-overlay
       - name: envoy-overlay
-      #! - name: contour-overlay
-  
+      
 shared:
   ingress_domain: #@ data.values.INGRESS_DOMAIN
   image_registry:
