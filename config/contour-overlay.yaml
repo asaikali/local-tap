@@ -1,14 +1,22 @@
 apiVersion: v1
 kind: Secret
 metadata:
- name: contour-overlay
- namespace: tap-install
+  name: contour-overlay
+  namespace: tap-install
 stringData:
- custom-package-overlay.yml: |
-  #@ load("@ytt:overlay", "overlay")
-  
-  #@overlay/match by=overlay.subset({"kind": "Deployment", "metadata": {"name": "contour"}})
-  ---
-  spec:
-    #@overlay/replace
-    replicas: 1
+  custom-package-overlay.yml: |
+    #@ load("@ytt:overlay", "overlay")
+
+    #! Overlay for the "contour" Deployment we don't need two deployments since we are using a simple test install on docker desktop 
+    #@overlay/match by=overlay.subset({"kind": "Deployment", "metadata": {"name": "contour"}})
+    ---
+    spec:
+      #@overlay/replace
+      replicas: 1
+
+    #! Overlay for the "envoy" Deployment, we are deploying on a single node requiring more than one replica means that the package will never reconcile 
+    #@overlay/match by=overlay.subset({"kind": "Deployment", "metadata": {"name": "envoy"}})
+    ---
+    spec:
+      #@overlay/replace
+      replicas: 1

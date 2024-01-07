@@ -7,8 +7,6 @@ source ${GIT_REPO_ROOT}/config/settings.sh
 
 #
 # Apply overlay secrets
-#
-kubectl apply -f "${GIT_REPO_ROOT}/config/envoy-overlay.yaml"
 kubectl apply -f "${GIT_REPO_ROOT}/config/contour-overlay.yaml"
 
 #

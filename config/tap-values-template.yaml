@@ -9,7 +9,6 @@ package_overlays:
   - name: contour
     secrets:
       - name: contour-overlay
-      - name: envoy-overlay
       
 shared:
   ingress_domain: #@ data.values.INGRESS_DOMAIN
