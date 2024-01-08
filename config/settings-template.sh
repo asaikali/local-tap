@@ -4,7 +4,7 @@
 #
 # This domain should be mapped to 127.0.0.1 in public DNS server
 # using a wildcard for example in this case below *.local.tanzu.ca returns
-# 127.0.0.1
+# 127.0.0.1 you can use the base domain below without changing this value
 #
 readonly BASE_DOMAIN="tap.local.tanzu.ca"
 
