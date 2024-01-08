@@ -17,7 +17,7 @@ readonly WARNING="WARNING: The following items will be deleted:
 6. Secret-gen controller
 7. kapp-controller
 8. tanzu-cluster-essentials namespace
-9. crossplane-system namespace
+9. crossplane provisioned resources 
 
 Are you sure you want to proceed? (y/N): "
 
