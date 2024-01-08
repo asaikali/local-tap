@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if required CLIs are installed
-required_clis=("imgpkg" "ytt" "kbld" "kapp" "kubectl" "jq" "socat")
+required_clis=("imgpkg" "ytt" "kbld" "kapp" "kubectl" "jq" "socat" "tanzu")
 missing_clis=()
 
 echo "Checking for required CLIs..."

@@ -26,13 +26,49 @@ To complete the installation, you need to have the following ready:
 
 4. A variety of common CLI tools installed. You probably have them. If not, you can 
    easily install them. `00-validate-clis-are-installed.sh` script checks your 
-   system to see if it has the right clis installed.
+   system to see if it has the right CLIs installed.
 
 5. (Optional) A DNS domain that points to 127.0.0.1. You can use *.local.tanzu.ca 
    if you don't have your own domain. By having a wildcard DNS entry that points back 
    to localhost, we can end up with a domain name such as tap-gui.tap.local.tanzu.ca 
    that works on the laptop running TAP on Docker Desktop. If you don't have 
    a DNS server, you can just use local.tanzu.ca.
+
+### Common CLI Tools used in this repository
+
+* [Carvel Tools](https://carvel.dev)
+  * [imgpkg](https://carvel.dev/imgpkg/docs/latest) - image packaging utility
+  * [ytt](https://carvel.dev/ytt/docs/latest) - templating and patching YAML
+  * [kbld](https://carvel.dev/kbld/docs/latest) - image building and packing using SHA references
+  * [kapp](https://carvel.dev/kapp/docs/latest) - k8s applications
+* [Tanzu CLI](https://github.com/vmware-tanzu/tanzu-cli) - Tanzu CLI tool
+* [kubectl](https://kubernetes.io/docs/reference/kubectl/) - k8s CLI tool
+* [jq](https://jqlang.github.io/jq/) - JSON CLI processor (querying and parsing)
+* [socat](https://linux.die.net/man/1/socat) - SOcket CAT, multipurpose relay
+
+### Installing CLI Tools on Mac using `brew`
+
+```shell
+brew tap vmware-tanzu/carvel
+brew install ytt kbld kapp kwt imgpkg vendir kctrl
+```
+
+```shell
+brew install kubernetes-cli
+```
+
+```shell
+brew install jq
+```
+
+```shell
+brew install socat
+```
+
+```shell
+brew tap vmware-tanzu/carvel
+brew install tanzu-cli
+```
 
 ## How Networking Works When Deploying on Docker Desktop Kubernetes
 
