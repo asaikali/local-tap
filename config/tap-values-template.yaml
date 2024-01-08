@@ -47,4 +47,8 @@ tap_gui:
           development:
             clientId: #@ data.values.GITHUB_CLIENT_ID
             clientSecret: #@ data.values.GITHUB_CLIENT_SECRET
-   
+
+#! this will mean that when tap package is delete it deletes all the components of crossplane 
+#! see docs at https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.7/tap/crossplane-how-to-guides-delete-resources.html
+crossplane:
+  orphan_resources: false

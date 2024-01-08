@@ -6,13 +6,15 @@ get_filtered_api_resources() {
     shift
     local exclude_types=("$@")
 
-    local namespaced_flag=$([ "${is_namespaced}" = true ] && echo "--namespaced=true" || echo "--namespaced=false")
-    local all_resources=$(kubectl api-resources ${namespaced_flag} --verbs=list -o name)
+    #local namespaced_flag=$([ "${is_namespaced}" = true ] && echo "--namespaced=true" || echo "--namespaced=false")
+    local all_resources=$(kubectl api-resources ${namespaced_flag} --verbs=list -o name | grep -v events)
     local filtered_resources=()
 
     for resource in ${all_resources}; do
         local exclude=false
         for exclude_type in "${exclude_types[@]}"; do
+            echo ${resource} 
+            echo ${exclude_type}
             if [[ "${resource}" == "${exclude_type}" ]]; then
                 exclude=true
                 break
@@ -29,7 +31,7 @@ get_filtered_api_resources() {
 # Function to list resources in a namespace in wide format
 list_namespace_resources() {
     local namespace=${1}
-    local namespaced_resources=($(get_filtered_api_resources true "events.events.k8s.io"))
+    local namespaced_resources=$(kubectl api-resources ${namespaced_flag} --verbs=list -o name --namespaced=true | grep -v events)
 
 
     echo -e "\n\n===================================================================================================="
@@ -50,7 +52,8 @@ list_namespace_resources() {
 
 # Function to list cluster-wide resources in wide format
 list_cluster_resources() {
-    local cluster_resources=($(get_filtered_api_resources false "events.events.k8s.io"))
+    local cluster_resources=$(kubectl api-resources ${namespaced_flag} --verbs=list -o name --namespaced=false | grep -v events)
+
 
     echo -e "\n\n===================================================================================================="
     echo "Listing cluster-wide resources (excluding events)"

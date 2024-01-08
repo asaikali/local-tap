@@ -62,5 +62,7 @@ kapp delete -a kapp-controller -n tanzu-cluster-essentials --yes
 # Delete tanzu-cluster-essentials namespace
 kubectl delete namespace tanzu-cluster-essentials --ignore-not-found
 
-# Delete crossplane-system namespace
-kubectl delete namespace crossplane-system --ignore-not-found
+#
+# Crosspalne was installed and tap values has been configured to make
+# sure all crossplane objects are deleted, but it seems one object is forgotten
+kubectl delete validatingwebhookconfigurations.admissionregistration.k8s.io  crossplane --ignore-not-found

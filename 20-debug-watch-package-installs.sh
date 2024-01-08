@@ -1,0 +1,1 @@
+watch kubectl get pkgi -n tap-install   
