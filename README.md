@@ -41,7 +41,7 @@ To complete the installation, you need to have the following ready:
   * [ytt](https://carvel.dev/ytt/docs/latest) - templating and patching YAML
   * [kbld](https://carvel.dev/kbld/docs/latest) - image building and packing using SHA references
   * [kapp](https://carvel.dev/kapp/docs/latest) - k8s applications
-* [Tanzu CLI](https://github.com/vmware-tanzu/tanzu-cli) - Tanzu CLI tool
+* [Tanzu CLI](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.7/tap/install-tanzu-cli.html) - Tanzu CLI tool
 * [kubectl](https://kubernetes.io/docs/reference/kubectl/) - k8s CLI tool
 * [jq](https://jqlang.github.io/jq/) - JSON CLI processor (querying and parsing)
 * [socat](https://linux.die.net/man/1/socat) - SOcket CAT, multipurpose relay
@@ -68,6 +68,7 @@ brew install socat
 ```shell
 brew tap vmware-tanzu/carvel
 brew install tanzu-cli
+tanzu plugin install --group vmware-tap/default:v1.7.2
 ```
 
 ## How Networking Works When Deploying on Docker Desktop Kubernetes
