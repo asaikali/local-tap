@@ -68,7 +68,7 @@ brew install socat
 ```shell
 brew tap vmware-tanzu/carvel
 brew install tanzu-cli
-tanzu plugin install --group vmware-tap/default:v1.7.2
+tanzu plugin install --group vmware-tap/default
 ```
 
 ## How Networking Works When Deploying on Docker Desktop Kubernetes
@@ -171,11 +171,12 @@ installation.
 
 * `config/` contains configuration files for deploying tap 
 * `dev/` contains sample workload and k8s yaml file to get started
-* `workspace` used by the scripts to store temproary state, you will find mayn interesting thing is this folder as you run the scripts
+* `workspace/` used by the scripts to store temporary state, you will find many interesting things in this folder as you run the scripts
 
 ## Resources
 
 * [Tanzu Application Platform Docs](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/index.html)
+* [Tanzu CLI Docs](https://docs.vmware.com/en/VMware-Tanzu-CLI/index.html)
 * [Carvel Website](https://carvel.dev/)
 * [Cartographer](https://cartographer.sh/)
 * [Crossplane](https://www.crossplane.io/)
