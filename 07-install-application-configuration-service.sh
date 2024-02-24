@@ -6,7 +6,7 @@ readonly GIT_REPO_ROOT=$(git rev-parse --show-toplevel)
 source ${GIT_REPO_ROOT}/config/settings.sh
 
 
-readonly ACS_VERSION=$(tanzu package available list application-configuration-service.tanzu.vmware.com --namespace tap-install --column version -o json |  jq -r '.[0].version')
+readonly VERSION=$(tanzu package available list application-configuration-service.tanzu.vmware.com --namespace tap-install --column version -o json |  jq -r '.[0].version')
 
 #
 # Install Application Configuration Service
@@ -14,7 +14,7 @@ readonly ACS_VERSION=$(tanzu package available list application-configuration-se
 
 tanzu package install application-configuration-service \
   --package application-configuration-service.tanzu.vmware.com \
-  --version ${ACS_VERSION} \
+  --version ${VERSION} \
   --namespace tap-install \
   --ytt-overlay-file ${GIT_REPO_ROOT}/config/acs-overlay.yaml
   

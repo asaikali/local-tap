@@ -140,6 +140,30 @@ should pick up where they left off.
    catalog entry. After registration, you can navigate to the app in the software catalog, and everything 
    should work just fine, such as app live view, etc.
 
+
+## Install TAS Adapter
+
+1. run the command `09-install-tas-adapter.sh` to install the TAS Adapter
+
+2. run the command `cf api api.tap.local.tanzu.ca --skip-ssl-validation` to point the cf cli at the TAS adapter
+
+3. run the command `cf login` and it will log you in 
+
+4. create an org using the command `cf create-org test` 
+
+5. target the org with `cf target -o test`
+
+6. create a dev space `cf create-space -o test dev`
+
+7. cf target -s dev
+
+8. Clone the default cf sample app `git clone https://github.com/cloudfoundry-samples/spring-music`
+
+9. Compile the app with `./gradlew build`
+
+10. deploy the app with `cf push`
+
+
 ## Debug the Installation
 
 There is a set of scripts starting in the 20 range that you can use to debug the state of the 

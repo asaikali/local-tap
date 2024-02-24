@@ -7,7 +7,7 @@ source ${GIT_REPO_ROOT}/config/settings.sh
 
 
 # https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.7/tap/service-registry-install-service-registry.html
-readonly ACS_VERSION=$(tanzu package available list service-registry.spring.apps.tanzu.vmware.com  --namespace tap-install --column version -o json |  jq -r '.[0].version')
+readonly VERSION=$(tanzu package available list service-registry.spring.apps.tanzu.vmware.com  --namespace tap-install --column version -o json |  jq -r '.[0].version')
 
 #
 # Install Spring Cloud Service Registry
@@ -15,7 +15,7 @@ readonly ACS_VERSION=$(tanzu package available list service-registry.spring.apps
 
 tanzu package install service-registry \
   --package service-registry.spring.apps.tanzu.vmware.com  \
-  --version ${ACS_VERSION} \
+  --version ${VERSION} \
   --namespace tap-install \
 
   

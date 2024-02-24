@@ -39,3 +39,11 @@ tanzu package repository add tanzu-tap-repository \
 
 echo "## Check the status of the added repository"
 tanzu package repository get tanzu-tap-repository --namespace tap-install
+
+echo "## Adding TAS Adapter package repository to tap-install namespace"
+tanzu package repository add tas-adapter-repository \
+  --url "${TANZU_NET_REGISTRY_HOST}/app-service-adapter/tas-adapter-package-repo:${TAS_ADAPTER_VERSION}" \
+  --namespace tap-install
+
+echo "## Check the status of the added repository"
+tanzu package repository get tas-adapter-repository --namespace tap-install

@@ -1,0 +1,18 @@
+#@ load("@ytt:data", "data")
+
+ceip_policy_disclosed: true
+app_registry:
+  credentials:
+    secret_name: "workload-registry"
+    namespace: "tap-install"
+  repository_prefix: #@ data.values.WORKLOAD_REPO
+
+api_ingress:
+  fqdn: #@ "api." + data.values.INGRESS_DOMAIN
+app_ingress:
+  default_domain: #@ "cfapps." + data.values.INGRESS_DOMAIN
+
+admin:
+  users: 
+  - docker-desktop
+  - docker-for-desktop
